@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from "react";
+import PropTypes from 'prop-types';
 // import InfiniteScroll from "react-infinite-scroll-component";
 
 
@@ -103,6 +104,8 @@ const PhoneSection = ({setSell}) => {
   )
 }
 
-
+PhoneSection.propTypes = {
+  setSell: PropTypes.func.isRequired
+}
 
 export default PhoneSection

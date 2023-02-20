@@ -2,10 +2,10 @@ import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from "react";
+import PropTypes from 'prop-types';
 
 
-
-const NoteSection = () => {
+const NoteSection = ({setSell2}) => {
 
   const [Book, setBook] = useState([]);
   useEffect(() => {
@@ -74,7 +74,7 @@ const NoteSection = () => {
             <img src={book.note_image}></img>
             <div className='text-center'>{book.note_name}</div>
             <div>{book.note_price}</div>
-            <button className='border border-black rounded-full hover:bg-slate-200'>В корзину</button>
+            <button onClick={(e) => setSell2(Book[key])} className='border border-black rounded-full hover:bg-slate-200'>В корзину</button>
           </div>
 
         )
@@ -90,5 +90,9 @@ const NoteSection = () => {
 //   <td>{book.note_price}</td>
 
 // </tr>
+
+NoteSection.propTypes = {
+  setSell2: PropTypes.func.isRequired
+}
 
 export default NoteSection

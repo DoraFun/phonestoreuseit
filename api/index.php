@@ -63,6 +63,15 @@ switch ($method) {
             break;
         }
 
+        if ($path == '/api/pay') {
+           $sql =" INSERT INTO checks (note_id, phone_id) VALUES (1,3)";
+
+           $stmt = $conn->prepare($sql);
+           $stmt->execute();
+
+
+        }
+
        
 
 

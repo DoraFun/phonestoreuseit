@@ -16,10 +16,12 @@ function App() {
 
   const [token, setToken] = useState();
 
-  const [игеещт, setUsername] = useState();
 
+
+// for phones
   const [sell, setSell] = useState([]);
-
+  const [sell2, setSell2] = useState([]);
+  // for books
 
 
 
@@ -49,7 +51,7 @@ function App() {
           {/* I probably should use props... */}
         <div className="col-start-3 row-start-3 ml-80"> 
           {
-            !token ? (<RealCart cart={sell} authorized = ''/>) : (<RealCart cart={sell} authorized = '1'/>)
+            !token ? (<RealCart cart={sell} cart2 = {sell2} authorized = ''/>) : (<RealCart cart={sell} cart2= {sell2} authorized = '1'/>)
           }
         </div>
       </div>
@@ -73,7 +75,7 @@ function App() {
         <div>
           <Routes>
             <Route index element={<Placeholder/>} />
-            <Route path="/notebooks" element={<NoteSection/>}/>
+            <Route path="/notebooks" element={<NoteSection setSell2={setSell2}/>}/>
             <Route path="/phones" element={<PhoneSection setSell={setSell}/>}/>
           </Routes>
         </div>
