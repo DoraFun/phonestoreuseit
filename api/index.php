@@ -4,7 +4,8 @@ ini_set('display_errors', 1);
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
-
+$a = 1;
+$b = 3;
 include 'connect.php';
 $objDb = new DbConnect;
 $conn = $objDb->connect();
@@ -64,7 +65,7 @@ switch ($method) {
         }
 
         if ($path == '/api/pay') {
-           $sql =" INSERT INTO checks (note_id, phone_id) VALUES (1,3)";
+           $sql =" INSERT INTO checks (note_id, phone_id) VALUES ($a,$b)";
 
            $stmt = $conn->prepare($sql);
            $stmt->execute();
